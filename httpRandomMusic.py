@@ -7,7 +7,7 @@ import os, random, urllib, posixpath, shutil, subprocess
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 # 端口号
-port = 65534
+port = 8080
 
 # 存音乐的目录
 fileDir = '/volume1/music/github'
@@ -136,7 +136,6 @@ class meHandler(BaseHTTPRequestHandler):
                 self.send_response(404)
                 self.end_headers()
 
-if os.system("nslookup op.lan"):
-    print('ERROR: 请将op.lan指向本机ip，否则小爱音箱可能无法访问')
+
 updateFileList()
 HTTPServer(("", port), meHandler).serve_forever()
